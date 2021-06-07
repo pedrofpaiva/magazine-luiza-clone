@@ -15,16 +15,19 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Ofertas do diasss"),
-      ),
-      body: ListView.separated(
-        itemBuilder: builder,
-        separatorBuilder: (BuildContext context, int _) {
-          return Divider(
-            color: Colors.transparent,
-          );
-        },
-        itemCount: listOfProducts.length,
+          leading: Image.asset("assets/logo.jpg"),
+          title: Text("Ofertas do dia"),
+          backgroundColor: Theme.of(context).primaryColor),
+      body: Container(
+        child: ListView.separated(
+          itemBuilder: builder,
+          separatorBuilder: (BuildContext context, int _) {
+            return Divider(
+              color: Colors.transparent,
+            );
+          },
+          itemCount: listOfProducts.length,
+        ),
       ),
     );
   }
@@ -37,8 +40,8 @@ class _HomeState extends State<Home> {
         children: [
           Image.asset(
             _product.photo,
-            width: 72,
-            height: 72,
+            width: 48,
+            height: 48,
           )
         ],
       ),
@@ -51,8 +54,14 @@ class _HomeState extends State<Home> {
               fontSize: 16,
             ),
           ),
+          SizedBox(
+            height: 4,
+          ),
           Text(
             _product.description,
+          ),
+          SizedBox(
+            height: 8,
           ),
           Text(
             _product.price,
